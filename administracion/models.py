@@ -13,5 +13,5 @@ class Cliente(models.Model):
     fecha_actualizacion=models.DateField()
     
     def __str__(self):
-        return f'{self.id}'
+        return f'{self.id} - {self.doc_nit} - {self.razon_social} - {self.tipo_bien_raiz} - {self.fecha_creacion}'
     
