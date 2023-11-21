@@ -16,7 +16,7 @@
     {% if lista_clientes %}
         <ul class="py-4">
             {% for cliente in lista_clientes %}
-            <li class="list-group-item">{{cliente}}</li>
+            <li class="list-group-item">{{cliente}} | <a href={% url "detalle_cliente" cliente.id %}>Detalle</a></li>
             {% endfor %}
         </ul>
     {% else %}

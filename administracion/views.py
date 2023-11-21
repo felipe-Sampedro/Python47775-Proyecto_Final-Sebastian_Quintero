@@ -49,3 +49,10 @@ def busqueda(request):
     
     formulario= Buscar_Registro()
     return render(request,'administracion/buscar.html',{'lista_clientes':lista_clientes,'formulario':formulario})
+
+
+def detalle(request,cliente_id):
+    cliente=Cliente.objects.get(id=cliente_id)
+    print(cliente)
+    
+    return render(request,'administracion/detalle_cliente.html',{'cliente':cliente})

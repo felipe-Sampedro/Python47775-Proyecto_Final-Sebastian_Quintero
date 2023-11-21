@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head_tittle %}
+<title>Detalle Cliente</title>
+{% endblock head_tittle %}
+
+{% block main %}
+
+<form action="">
+    <table>
+        <div class='d-flex'>
+            <H4 class='px-4 d-flex align-items-center'>DETALLE CLIENTES</H4>
+        </div>
+        <ul class="py-4">
+            <li class="list-group-item"><strong>id: </strong>{{cliente.id}}</li>
+            <li class="list-group-item"><strong>representante_legal: </strong>{{cliente.representante_legal}}</li>
+            <li class="list-group-item"><strong>razon_social: </strong>{{cliente.razon_social}}</li>
+            <li class="list-group-item"><strong>doc_nit: </strong>{{cliente.doc_nit}}</li>
+            <li class="list-group-item"><strong>descripcion: </strong>{{cliente.descripcion}}</li>
+            <li class="list-group-item"><strong>num_inmuebles: </strong>{{cliente.num_inmuebles}}</li>
+            <li class="list-group-item"><strong>tipo_bien_raiz: </strong>{{cliente.tipo_bien_raiz}}</li>
+            <li class="list-group-item"><strong>fecha_creacion: </strong>{{cliente.fecha_creacion}}</li>
+            <li class="list-group-item"><strong>fecha_actualizacion: </strong>{{cliente.fecha_actualizacion}}</li>
+        </ul>
+    </table>
+</form>
+
+
+{% endblock main %}
