@@ -5,7 +5,7 @@ from administracion.models import Cliente
 
 # Create your views here.
 def inicio(request):
-    return render(request,'base.html',{})
+    return render(request,'administracion/inicio.html',{})
 
 def clientes(request):
     if request.method=='POST':
@@ -93,3 +93,6 @@ def editar(request,cliente_id):
         })
     return render(request,'administracion/editar_cliente.html',{'formulario':formulario})
 
+
+def about(request):
+    return render(request,'administracion/about_me.html',{})
