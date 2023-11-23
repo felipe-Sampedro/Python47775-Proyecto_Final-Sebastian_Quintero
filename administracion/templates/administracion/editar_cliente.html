@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block head_tittle %}
+<title>Editar Clientes</title>
+{% endblock head_tittle %}
+
+
+{% block main %}
+
+<form action="" method="POST" class="formulario row mx-5 col-6">
+    {% csrf_token %}
+    <H1>CLIENTE A EDITAR</H1>
+    {{formulario}}
+    <input type="submit" value="Editar" class="my-4">
+</form>
+
+{% endblock main %}

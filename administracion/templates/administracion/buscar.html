@@ -16,7 +16,7 @@
     {% if lista_clientes %}
         <ul class="py-4">
             {% for cliente in lista_clientes %}
-            <li class="list-group-item">{{cliente}} | <a href={% url "detalle_cliente" cliente.id %}>Detalle</a></li>
+            <li class="list-group-item">{{cliente}} | <a href={% url "detalle_cliente" cliente.id %}>Detalle</a> | <a href={% url "editar_cliente" cliente.id %}>Editar</a>  | <a href={% url "borrar_cliente" cliente.id %}>Borrar</a></a></li>
             {% endfor %}
         </ul>
     {% else %}
