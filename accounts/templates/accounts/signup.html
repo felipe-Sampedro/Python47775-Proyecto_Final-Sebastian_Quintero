@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block head_tittle %}
+<title>Sign Up</title>
+{% endblock head_tittle %}
+
+
+{% block main %}
+
+<form action={% url "signup" %} method="POST" class="formulario row mx-5 col-6">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <input type="submit" value="Log In" class="my-4">
+</form>
+
+{% endblock main %}

@@ -20,15 +20,20 @@
                 <a class="navbar-brand" href="/">Inicio</a>
                 <a class="navbar-brand" href="/clientes/">Clientes</a>
                 <a class="navbar-brand" href="/buscar/">Buscar</a>
-                <a class="navbar-brand" href="/about_me/">About Me</a>
+                {% comment %} <a class="navbar-brand" href="/about_me/">About Me</a> {% endcomment %}
                 {% comment %} <a class="navbar-brand" href="/verificacion/">Veri</a> {% endcomment %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    {% comment %} <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul> {% endcomment %}
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/about_me/">About Me</a></li>
+                        {% if not request.user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link" href={% url "login" %}>Log In</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url "signup" %}>sign up</a></li>
+                        {% else %}
+                            <a class="navbar-brand" href="">{{request.user.username}}</a>
+                            <li class="nav-item"><a class="nav-link" href={% url "logout" %}>Log Out</a></li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
         </nav>

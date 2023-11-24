@@ -56,6 +56,7 @@ def detalle(request,cliente_id):
     cliente=Cliente.objects.get(id=cliente_id)
     return render(request,'administracion/detalle_cliente.html',{'cliente':cliente})
 
+
 def borrar(request,cliente_id):
     cliente_borrar=Cliente.objects.get(id=cliente_id)
     cliente_borrar.delete()
