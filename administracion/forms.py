@@ -17,7 +17,7 @@ class Crear_cliente(Base_cliente):
     ...
         
 class Buscar_Registro(forms.Form):
-    ...
-
+    razon_social=forms.CharField()
+    
 class Editar_Cliente(Base_cliente):
     fecha_actualizacion=forms.DateField()

@@ -1,5 +1,6 @@
 import datetime
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from administracion.forms import Crear_cliente,Buscar_Registro,Editar_Cliente
 from administracion.models import Cliente
 
@@ -7,6 +8,7 @@ from administracion.models import Cliente
 def inicio(request):
     return render(request,'administracion/inicio.html',{})
 
+@login_required
 def clientes(request):
     if request.method=='POST':
         formulario=Crear_cliente(request.POST)
@@ -41,8 +43,10 @@ def clientes(request):
     formulario=Crear_cliente()
     return render(request,'administracion/crear_cliente.html',{'formulario':formulario})
 
+
 def busqueda(request):
-    cliente_buscar=request.GET.get('Cliente')
+    cliente_buscar=request.GET.get('razon_social')
+    print(cliente_buscar)
     if cliente_buscar:
         lista_clientes=Cliente.objects.filter(razon_social__icontains=cliente_buscar)
     else:
@@ -56,13 +60,13 @@ def detalle(request,cliente_id):
     cliente=Cliente.objects.get(id=cliente_id)
     return render(request,'administracion/detalle_cliente.html',{'cliente':cliente})
 
-
+@login_required
 def borrar(request,cliente_id):
     cliente_borrar=Cliente.objects.get(id=cliente_id)
     cliente_borrar.delete()
     return redirect('/buscar')
 
-
+@login_required
 def editar(request,cliente_id):
     cliente_editar=Cliente.objects.get(id=cliente_id)
     if request.method =='POST':

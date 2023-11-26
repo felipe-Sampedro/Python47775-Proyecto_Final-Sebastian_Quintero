@@ -7,13 +7,15 @@
 
 
 {% block main %}
-
-<form action={% url "signup" %} method="POST" class="formulario row mx-5 col-6">
-    {% csrf_token %}
-    <table>
-        {{form}}
-    </table>
-    <input type="submit" value="Log In" class="my-4">
-</form>
+<div>
+    
+    <form action={% url "signup" %} method="POST" class="formulario row mx-5 col-4">
+        {% csrf_token %}
+        <table>
+            {{form}}
+        </table>
+        <input type="submit" value="Log In" class="my-4">
+    </form>
+</div>
 
 {% endblock main %}
