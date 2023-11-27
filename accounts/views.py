@@ -3,9 +3,9 @@ from django.contrib.auth import authenticate, login as django_login
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+
 from accounts.forms import Mi_formulario_sign_up, Editar_perfil
-
-
 
 # Create your views here.
 def login(request):
@@ -50,8 +50,9 @@ def update(request,id_user):
             user_update.username=nueva_info.get('username') 
             user_update.email=nueva_info.get('email') 
             user_update.save()
-            
             return redirect('/accounts/perfil')
-
-            
     return render(request,'accounts/editar_perfil.html',{'form':formulario})
+
+class CamnbioPassword(PasswordChangeView):
+    template_name='accounts/cambiar_password.html'
+    success_url=reverse_lazy('perfil')
