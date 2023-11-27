@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as django_login
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from accounts.forms import Mi_formulario_sign_up
+from django.contrib.auth.models import User
+from django.contrib.auth.views import PasswordChangeView
+from accounts.forms import Mi_formulario_sign_up, Editar_perfil
+
 
 
 # Create your views here.
@@ -28,3 +31,27 @@ def signup(request):
             return redirect('login')
     
     return render(request,'accounts/signup.html',{'form':formulario})
+
+
+def perfil(request):
+    return render(request,'accounts/perfil_usuario.html',{})
+
+def update(request,id_user):
+    user_update=User.objects.get(id=id_user)
+    formulario = Editar_perfil(initial={
+        'username':user_update.username,
+        'email':user_update.email,
+        })
+    
+    if request.method=='POST':
+        formulario=Editar_perfil(request.POST)
+        if formulario.is_valid():
+            nueva_info=formulario.cleaned_data
+            user_update.username=nueva_info.get('username') 
+            user_update.email=nueva_info.get('email') 
+            user_update.save()
+            
+            return redirect('/accounts/perfil')
+
+            
+    return render(request,'accounts/editar_perfil.html',{'form':formulario})
