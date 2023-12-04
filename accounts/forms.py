@@ -16,12 +16,12 @@ class Mi_formulario_sign_up(UserCreationForm):
 class Editar_perfil(UserChangeForm):
     password = None
     email = forms.EmailField(label='Cambiar email', required=False)
-    # first_name = forms.CharField(label='Cambiar nombre', required=False)
-    # last_name = forms.CharField(label='Cambiar apellido', required=False)
-    # biografia = forms.CharField(max_length=300, required=False, widget=forms.Textarea)
-    # avatar = forms.ImageField(required=False)
+    first_name = forms.CharField(label='Cambiar nombre', required=False)
+    last_name = forms.CharField(label='Cambiar apellido', required=False)
+    biografia = forms.CharField(max_length=300, required=False, widget=forms.Textarea)
+    # avatar = forms.ImagaeField(required=False)
     
     class Meta:
         model = User
-        fields = ['username','email']
+        fields = ['username','email','first_name','last_name','biografia']
         help_texts={'username':'','email':''}
