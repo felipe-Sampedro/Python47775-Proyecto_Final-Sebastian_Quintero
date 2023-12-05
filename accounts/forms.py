@@ -19,9 +19,9 @@ class Editar_perfil(UserChangeForm):
     first_name = forms.CharField(label='Cambiar nombre', required=False)
     last_name = forms.CharField(label='Cambiar apellido', required=False)
     biografia = forms.CharField(max_length=300, required=False, widget=forms.Textarea)
-    # avatar = forms.ImagaeField(required=False)
+    avatar = forms.ImageField(required=False)
     
     class Meta:
         model = User
-        fields = ['username','email','first_name','last_name','biografia']
+        fields = ['username','email','first_name','last_name','biografia','avatar']
         help_texts={'username':'','email':''}

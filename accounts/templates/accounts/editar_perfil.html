@@ -6,7 +6,7 @@
 {% endblock head_tittle %}
 
 {% block main %}
-    <form action="" method="POST" class="formulario row mx-5 col-6">
+    <form action={% url "update" %} method="POST" enctype="multipart/form-data" class="formulario row mx-5 col-6">
         {% csrf_token %}
         {{form}}
         <input type="submit" value="Editar" class="my-4">

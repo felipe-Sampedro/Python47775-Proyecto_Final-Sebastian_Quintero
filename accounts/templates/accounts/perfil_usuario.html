@@ -15,8 +15,8 @@
             <li class="list-group-item"><strong>id: </strong>{{user.id}}</li>
             <li class="list-group-item"><strong>representante_legal: </strong>{{user.username}}</li>
             <li class="list-group-item"><strong>razon_social: </strong>{{user.email}}</li>
-            <a class="btn btn-primary"  href={% url "update" request.user.id%}>Actualizar</a>
-            <a class="btn btn-warning" href={% url "cambiar_password"%}>Cambiar Contraseña</a>
+            <a class="btn btn-primary my-3"  href={% url "update"%}>Actualizar</a>
+            <a class="btn btn-warning my-3" href={% url "cambiar_password"%}>Cambiar Contraseña</a>
         </ul>
     </table>
 </form>
