@@ -36,6 +36,7 @@ def signup(request):
 
 
 def perfil(request):
+    
     return render(request,'accounts/perfil_usuario.html',{})
 
 def update(request):
@@ -43,8 +44,6 @@ def update(request):
 
     formulario = Editar_perfil(instance=request.user,initial={'biografia': datos_extra.biografia,'avatar':datos_extra.avatar})
     if request.method=='POST':
-        print('REQUEST.post ',request.POST)
-        print('REQUEST.FILES ',request.FILES)
         formulario=Editar_perfil(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
             

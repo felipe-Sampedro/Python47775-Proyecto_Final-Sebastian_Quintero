@@ -11,6 +11,7 @@
 <form action="" method="POST" class="formulario row mx-5 col-6">
     {% csrf_token %}
     <H1>CLIENTE A EDITAR</H1>
+    {{formulario.media}}
     {{formulario}}
     <input type="submit" value="Editar" class="my-4">
 </form>

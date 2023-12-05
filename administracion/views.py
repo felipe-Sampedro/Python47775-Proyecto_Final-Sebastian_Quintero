@@ -11,7 +11,10 @@ def inicio(request):
 @login_required
 def clientes(request):
     if request.method=='POST':
-        formulario=Crear_cliente(request.POST)
+        print('Request Files',request.FILES)
+        print('Request POST',request.POST)
+        print('Request',request)
+        formulario=Crear_cliente(request.POST,request.FILES)
         if formulario.is_valid():
             info_limpia = formulario.cleaned_data
             
@@ -23,7 +26,8 @@ def clientes(request):
             tipo_bien_raiz=info_limpia.get('tipo_bien_raiz')
             fecha_creacion=info_limpia.get('fecha_creacion')
             fecha_actualizacion=info_limpia.get('fecha_actualizacion')
-            
+            foto=info_limpia.get('foto')
+            print('foto ',foto)
             registro = Cliente(
                 representante_legal=representante_legal,
                 razon_social=razon_social.lower(),
@@ -32,7 +36,8 @@ def clientes(request):
                 num_inmuebles=num_inmuebles,
                 tipo_bien_raiz=tipo_bien_raiz,
                 fecha_creacion=fecha_creacion,
-                fecha_actualizacion=fecha_actualizacion
+                fecha_actualizacion=fecha_actualizacion,
+                foto=foto
                 )
             
             registro.save()

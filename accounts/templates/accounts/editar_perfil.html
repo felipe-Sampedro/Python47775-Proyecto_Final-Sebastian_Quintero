@@ -8,6 +8,7 @@
 {% block main %}
     <form action={% url "update" %} method="POST" enctype="multipart/form-data" class="formulario row mx-5 col-6">
         {% csrf_token %}
+        {{form.media}}
         {{form}}
         <input type="submit" value="Editar" class="my-4">
     </form>
