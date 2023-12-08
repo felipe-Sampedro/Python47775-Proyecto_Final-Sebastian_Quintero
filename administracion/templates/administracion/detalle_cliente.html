@@ -21,9 +21,7 @@
             <li class="list-group-item"><strong>tipo_bien_raiz: </strong>{{cliente.tipo_bien_raiz}}</li>
             <li class="list-group-item"><strong>fecha_creacion: </strong>{{cliente.fecha_creacion}}</li>
             <li class="list-group-item"><strong>fecha_actualizacion: </strong>{{cliente.fecha_actualizacion}}</li>
-            {% if request.cliente.foto %}
-                <li class="list-group-item"><strong>Foto: </strong><img src={{request.cliente.foto.url}} alt="Imgen_referencia"></li>
-            {% endif %}
+            <li class="list-group-item"><strong>Foto: </strong><img src={{foto_url}} height="200px" alt="Propiedad"></li>
         </ul>
     </table>
 </form>

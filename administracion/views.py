@@ -63,7 +63,8 @@ def busqueda(request):
 
 def detalle(request,cliente_id):
     cliente=Cliente.objects.get(id=cliente_id)
-    return render(request,'administracion/detalle_cliente.html',{'cliente':cliente})
+    foto_url=cliente.foto.url if cliente.foto else None
+    return render(request,'administracion/detalle_cliente.html',{'cliente':cliente,'foto_url':foto_url})
 
 @login_required
 def borrar(request,cliente_id):
